@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TeamPulse | Team Availability Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+                <h1>Team<span>Pulse</span></h1>
+                <p>Team Availability Tracker</p>
+            </div>
+
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                Live Dashboard
+            </div>
+
+        </header>
+
+
+        <main>
+
+            <!-- WELCOME SECTION -->
+
+            <section class="welcome-section">
+
+                <div>
+                    <p class="eyebrow">TEAM OVERVIEW</p>
+
+                    <h2>Know who's available.</h2>
+
+                    <p class="subtitle">
+                        Track your team's availability across different time zones.
+                    </p>
+                </div>
+
+                <button id="refreshBtn" class="refresh-btn">
+                    ↻ Refresh
+                </button>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="summary-grid">
+
+                <div class="summary-card total-card">
+                    <p>Total Members</p>
+                    <h3 id="totalCount">0</h3>
+                    <span>People in your team</span>
+                </div>
+
+                <div class="summary-card available-card">
+                    <p>Available</p>
+                    <h3 id="availableCount">0</h3>
+                    <span>Ready to collaborate</span>
+                </div>
+
+                <div class="summary-card busy-card">
+                    <p>Busy</p>
+                    <h3 id="busyCount">0</h3>
+                    <span>Currently occupied</span>
+                </div>
+
+                <div class="summary-card away-card">
+                    <p>Away</p>
+                    <h3 id="awayCount">0</h3>
+                    <span>Currently away</span>
+                </div>
+
+            </section>
+
+
+            <!-- GLOBAL TIMEZONE CLOCKS -->
+
+            <section class="timezone-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Global Team Clocks</h2>
+
+                        <p>
+                            Current local time across your team's locations
+                        </p>
+                    </div>
+
+                    <span class="live-label">● LIVE</span>
+
+                </div>
+
+
+                <div class="timezone-grid">
+
+                    <!-- INDIA -->
+
+                    <div class="timezone-card">
+
+                        <div class="timezone-icon">🇮🇳</div>
+
+                        <h3>India</h3>
+
+                        <p>Asia/Kolkata</p>
+
+                        <h2 id="indiaTime">--:--:--</h2>
+
+                        <span id="indiaDate"></span>
+
+                    </div>
+
+
+                    <!-- LONDON -->
+
+                    <div class="timezone-card">
+
+                        <div class="timezone-icon">🇬🇧</div>
+
+                        <h3>London</h3>
+
+                        <p>Europe/London</p>
+
+                        <h2 id="londonTime">--:--:--</h2>
+
+                        <span id="londonDate"></span>
+
+                    </div>
+
+
+                    <!-- NEW YORK -->
+
+                    <div class="timezone-card">
+
+                        <div class="timezone-icon">🇺🇸</div>
+
+                        <h3>New York</h3>
+
+                        <p>America/New_York</p>
+
+                        <h2 id="newYorkTime">--:--:--</h2>
+
+                        <span id="newYorkDate"></span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TEAM MEMBERS SECTION -->
+
+            <section class="team-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Team Members</h2>
+
+                        <p>Manage and monitor your team</p>
+                    </div>
+
+                    <span id="memberCount" class="member-count">
+                        0 members
+                    </span>
+
+                </div>
+
+
+                <!-- SEARCH AND FILTERS -->
+
+                <div class="filters">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search team members..."
+                    >
+
+                    <select id="roleFilter">
+
+                        <option value="All">All Roles</option>
+
+                        <option value="Engineering">Engineering</option>
+
+                        <option value="Design">Design</option>
+
+                        <option value="Product">Product</option>
+
+                        <option value="QA">QA</option>
+
+                    </select>
+
+
+                    <select id="statusFilter">
+
+                        <option value="All">All Statuses</option>
+
+                        <option value="Available">Available</option>
+
+                        <option value="Busy">Busy</option>
+
+                        <option value="Away">Away</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TEAM MEMBER CARDS -->
+
+                <div id="teamGrid" class="team-grid">
+
+                    <p class="loading-message">
+                        Loading team members...
+                    </p>
+
+                </div>
+
+
+                <!-- SUCCESS / ERROR MESSAGE -->
+
+                <p id="message" class="message"></p>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                TeamPulse · Powered by Node.js, Express & PostgreSQL
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
